@@ -7,6 +7,7 @@ import {
   Check,
   Piano,
   Trees,
+  Clock,
   ArrowLeft,
   Loader2,
 } from 'lucide-react'
@@ -92,6 +93,7 @@ export function PianoForm() {
     lng: null,
   })
   const [ambiente, setAmbiente] = useState('')
+  const [horario, setHorario] = useState('')
   const [estado, setEstado] = useState<Rating>(0)
   const [ambienteNota, setAmbienteNota] = useState<Rating>(0)
   const [observacoes, setObservacoes] = useState('')
@@ -115,6 +117,7 @@ export function PianoForm() {
         lat: localizacao.lat as number,
         lng: localizacao.lng as number,
         ambienteLabel: ambientes.find((a) => a.value === ambiente)?.label ?? ambiente,
+        horario,
         estado,
         ambienteNota,
         observacoes,
@@ -133,6 +136,7 @@ export function PianoForm() {
     setModelo('')
     setLocalizacao({ location: '', lat: null, lng: null })
     setAmbiente('')
+    setHorario('')
     setEstado(0)
     setAmbienteNota(0)
     setObservacoes('')
@@ -165,6 +169,12 @@ export function PianoForm() {
             <dt className="text-muted-foreground">Localização</dt>
             <dd className="font-medium text-foreground text-right">
               {localizacao.location || '—'}
+            </dd>
+          </div>
+          <div className="flex justify-between gap-4 rounded-lg bg-secondary px-4 py-2.5">
+            <dt className="text-muted-foreground">Horário disponível</dt>
+            <dd className="font-medium text-foreground text-right">
+              {horario || '—'}
             </dd>
           </div>
           <div className="flex justify-between gap-4 rounded-lg bg-secondary px-4 py-2.5">
@@ -273,6 +283,28 @@ export function PianoForm() {
               </option>
             ))}
           </select>
+        </div>
+
+        {/* Horário disponível */}
+        <div className="grid gap-2">
+          <label
+            htmlFor="horario"
+            className="flex items-center gap-1.5 text-sm font-semibold text-foreground"
+          >
+            <Clock className="size-4 text-brand" aria-hidden="true" />
+            Horário disponível
+          </label>
+          <input
+            id="horario"
+            value={horario}
+            onChange={(e) => setHorario(e.target.value)}
+            placeholder="Ex.: Todos os dias, 8h às 20h"
+            required
+            className={fieldClass}
+          />
+          <p className="text-xs text-muted-foreground">
+            Quando o piano fica acessível ao público — dias da semana e horário de abertura/fechamento do local.
+          </p>
         </div>
 
         {/* Avaliações */}

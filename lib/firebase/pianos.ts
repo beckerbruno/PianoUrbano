@@ -63,6 +63,7 @@ export interface PianoSuggestionInput {
   lat: number
   lng: number
   ambienteLabel: string
+  horario: string
   estado: number
   ambienteNota: number
   observacoes: string
@@ -86,7 +87,7 @@ export async function submitPianoSuggestion(input: PianoSuggestionInput): Promis
     lat: input.lat,
     lng: input.lng,
     status: STATUS_PENDENTE,
-    hours: 'A confirmar',
+    hours: input.horario,
     createdAt: serverTimestamp(),
   })
 

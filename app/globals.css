@@ -1,0 +1,102 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import 'leaflet/dist/leaflet.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-lora), 'Iowan Old Style', Georgia, serif;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  /* Starbucks-inspired brand tokens */
+  --color-brand: var(--brand);
+  --color-brand-accent: var(--brand-accent);
+  --color-house: var(--house);
+  --color-house-foreground: var(--house-foreground);
+  --color-gold: var(--gold);
+  --color-ceramic: var(--ceramic);
+
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+  /* Warm-neutral canvas referencing café materials */
+  --background: #f2f0eb;
+  --foreground: rgba(0, 0, 0, 0.87);
+  --card: #ffffff;
+  --card-foreground: rgba(0, 0, 0, 0.87);
+  --popover: #ffffff;
+  --popover-foreground: rgba(0, 0, 0, 0.87);
+  /* Green Accent — primary filled CTA */
+  --primary: #00754a;
+  --primary-foreground: #ffffff;
+  --secondary: #edebe9;
+  --secondary-foreground: rgba(0, 0, 0, 0.87);
+  --muted: #edebe9;
+  --muted-foreground: rgba(0, 0, 0, 0.58);
+  --accent: #d4e9e2;
+  --accent-foreground: #006241;
+  --destructive: #c82014;
+  --border: #e2ded6;
+  --input: #d6dbde;
+  --ring: #00754a;
+  --radius: 0.75rem;
+
+  /* Brand */
+  --brand: #006241;
+  --brand-accent: #00754a;
+  --house: #1e3932;
+  --house-foreground: #ffffff;
+  --gold: #cba258;
+  --ceramic: #edebe9;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Leaflet marker fix + rounded map surface */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #dfe7e4;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0px 0px 0.5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.24);
+}
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  color: #1e3932;
+}

@@ -52,7 +52,7 @@ export default function PianoMap({
   selectedId: string | null
   onSelect: (id: string) => void
 }) {
-  const center: [number, number] = [-23.5558, -46.6596]
+  const center: [number, number] = [-30.0346, -51.2177]
 
   return (
     <MapContainer

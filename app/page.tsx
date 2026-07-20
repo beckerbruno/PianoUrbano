@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Music, Navigation, Plus } from 'lucide-react'
 import { PianoExplorer } from '@/components/piano/piano-explorer'
+import { PianoStats } from '@/components/piano/piano-stats'
 
 export default function Page() {
   return (
@@ -72,25 +73,7 @@ export default function Page() {
               </a>
             </div>
           </div>
-          <ul className="grid grid-cols-3 gap-3">
-            {[
-              { n: '6', l: 'pianos mapeados' },
-              { n: '2', l: 'apps de rota' },
-              { n: '100%', l: 'gratuito' },
-            ].map((item) => (
-              <li
-                key={item.l}
-                className="rounded-xl bg-white/5 p-4 text-center ring-1 ring-white/10"
-              >
-                <p className="font-serif text-2xl text-gold md:text-3xl">
-                  {item.n}
-                </p>
-                <p className="mt-1 text-xs text-white/70 text-pretty">
-                  {item.l}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <PianoStats />
         </div>
       </section>
 
